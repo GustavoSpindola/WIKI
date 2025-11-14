@@ -1,0 +1,65 @@
+const input = document.getElementById('tarefa')
+const btn = document.getElementById('adicionar');
+const lista = document.getElementById('lista-tarefas');
+
+
+btn.addEventListener('click', () => {
+    const texto = input.value.trim();
+    if(texto === '') return;
+
+    const li = document.createElement('li');
+    li.innerHTML = `${texto} <button>Excluir</button>`;
+
+
+
+li.addEventListener('click', () => {
+    li.classList.toggle('concluida');
+});
+
+
+
+li.querySelector('button').addEventListener('click', (e) => {
+    e.stopPropagation();
+    li.remove();
+    salvar();
+});
+
+lista.appendChild(li);
+input.value = '';
+salvar();
+});
+
+// Salvar no localStorage
+
+function salvar() {
+  const tarefas = [];
+  lista.querySelectorAll('li').forEach(li => {
+    tarefas.push({
+      texto: li.firstChild.textContent.trim(),
+      concluida: li.classList.contains('concluida')
+    });
+  });
+  localStorage.setItem('tarefas', JSON.stringify(tarefas));
+}
+
+//Carregar as tarefas do localStorage
+
+function carregar() {
+    const dados = JSON.parse(localStorage.getItem('tarefas')) || [];
+    dados.forEach(t => {
+        const li = document.createElement('li');
+        li.innerHTML = `${t.texto} <button>Excluir</button>`;
+        if (t.concluida) li.classList.add('completed');
+
+        li.addEventListener('click', () => li.classList.toggle('completed'));
+        li.querySelector('button').addEventListener('click', (e) => {
+            e.stopPropagation();
+            li.remove();
+            salvar();
+    });
+    
+    lista.appendChild(li);
+});
+
+}
+Carregar();

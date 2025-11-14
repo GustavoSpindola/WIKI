@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dúvidas Técnicas</title>
-    <link rel="stylesheet" href="/Técnico/tecnico.css">
+    <title>Tarefas</title>
+    <link rel="stylesheet" href="ToDo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
 </head>
+
 </head>
 <body>
+
     <nav class="navbar">
         <ul>
             <li><a href="/index.html" target="_blank"><i class="fa-sharp fa-solid fa-house" style="color: #ffffff;"></i></a></li>
             <li><a href="/OS/os.html" target="_blank"><i class="fa-solid fa-screwdriver-wrench" style="color: #ffffff;"></i></a></li>
             <li><a href="/Mensagens/mensagens.html" target="_blank"><i class="fa-solid fa-comment" style="color: #ffffff;"></i></a></li>
             <li><a href="/Técnico/tecnico.html" target="_blank"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></a></li>
-            <li><a href="/ToDoPage/ToDo.html" target="_blank"><i class="fa-solid fa-check" style="color: #ffffff;"></i></a></li>
+            <li><a href="ToDo.html" target="_blank"><i class="fa-solid fa-check" style="color: #ffffff;"></i></a></li>
         </ul>
     </nav>
+
+    <div class="container">
+        <h1>Minha Tarefas</h1>
+        <div class="input-area">
+            <input type="text" id="tarefa" placeholder="Adicionar Nova tarefa">
+            <button id = "adicionar">Adicionar</button> 
+        </div>
+        <ul id="lista-tarefas"></ul>
+    </div>
+    
+    
+    <script src="script.js"></script>
 </body>
 </html>
